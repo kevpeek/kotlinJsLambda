@@ -49,7 +49,7 @@ dependencies {
 }
 ```
 
-This is the boilerplate `build.gradle` file provided by the Kotlin/JS docs [here] (https://kotlinlang.org/docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html).
+This is the boilerplate `build.gradle` file provided by the Kotlin/JS docs [here](https://kotlinlang.org/docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html).
 
 The Kotlin/JS docs list two changes that need to be made to `build.gradle` . Add the following to the bottom of the file.
 
@@ -89,9 +89,9 @@ Note: I have made two small changes from the Kotlin/JS docs:
 Next, I create a Kotlin source file located at  `./src/main/kotlin/Main.kt` which looks as follows:
 
 ```
-@JsName("handle")
+@JsName("handler")
 fun handle(event: Any?, context: Any?) {
-  println("hello lambda! 01")
+  println("hello lambda!")
 }
 ```
 
@@ -109,7 +109,7 @@ Click `Create Function` and set up a Node.js function according to the docs.
 
 In the configuration page for your function, scroll down to the “Function code” section and create two new files `kotlinjslambda.js` and `kotlin.js`. Copy the contents of your local files into the respective files in AWS.
 
-To direct Lambda to our function’s entry point, specify the handler as `kotlinjslambda.handle`. This should match the value supplied to the `@JsName` annotation earlier.
+To direct Lambda to our function’s entry point, specify the handler as `kotlinjslambda.handler`. This should match the value supplied to the `@JsName` annotation earlier.
 
 Before we save and test our function, we need to make one small change to the compiled code. In `kotlinjslambda.js` find the import for the kotlin module and change it to expect a local module. Specifically, change the following line:
 

@@ -1,4 +1,4 @@
-@JsName("handle")
+@JsName("handler")
 fun handle(event: Any?, context: Any?) {
-  println("hello lambda! 01")
+  println("hello lambda!")
 }

@@ -8,6 +8,8 @@
 .gradle/
 build/
 
+web/
+
 # Package Files #
 *.jar
 *.war
