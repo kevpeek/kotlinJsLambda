@@ -99,9 +99,9 @@ fun handle(event: Any?, context: Any?) {
 
 ### Compilation
 
-We’re ready to compile! Run `gradle build` and everything should compile successfully.
+The project is ready to compile! Run `gradle build` and everything should compile successfully.
 
-First, we should find the compiled version of our code at `./web/output.js`.  In addition, the Kotlin standard library was compiled into `./web/lib/kotlin.js`.
+First, the compiled Lambda function can be found in `./web/output.js`.  In addition, the Kotlin standard library was compiled into `./web/lib/kotlin.js`.
 
 ### Creating A Lambda Function
 
@@ -113,7 +113,7 @@ In the configuration page for your function, scroll down to the “Function code
 
 To direct Lambda to our function’s entry point, specify the handler as `kotlinjslambda.handler`. This should match the value supplied to the `@JsName` annotation earlier.
 
-Before we save and test our function, we need to make one small change to the compiled code. In `kotlinjslambda.js` find the import for the kotlin module and change it to expect a local module. Specifically, change the following line:
+Before saving and testing the function, one small change needs to be made to the compiled code. In `kotlinjslambda.js` find the import for the kotlin module and change it to expect a local module. Specifically, change the following line:
 
 `}(module.exports, require('kotlin')));`
 to instead be:
