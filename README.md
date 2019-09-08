@@ -1,7 +1,9 @@
 # Kotlin/JS AWS Lambda Demo
 
 ## Description
-TODO
+This guide walks through the steps of writing an AWS Lambda function using
+Kotlin/JS. My goal is to keep code and configuration to a minimum to facilitate
+getting a functioning Lambda function.
 
 ## Environment Setup
 TODO
