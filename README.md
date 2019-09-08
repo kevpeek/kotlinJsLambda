@@ -1,4 +1,4 @@
-# Kotlin/JS AWS Demo
+# Kotlin/JS AWS Lambda Demo
 
 ## Description
 TODO
@@ -7,6 +7,9 @@ TODO
 TODO
 
 ## Steps
+Below are the steps I followed to set up my Lambda function. These steps were valid
+at the time of writing (8 September 2019).
+
 ### Project Setup
 
 First, create a project directory, cd into it, and initialize a gradle project.
