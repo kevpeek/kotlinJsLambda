@@ -5,8 +5,14 @@ This guide walks through the steps of writing an AWS Lambda function using
 Kotlin/JS. My goal is to keep code and configuration to a minimum to facilitate
 getting a functioning Lambda function.
 
-## Environment Setup
-TODO
+## Environment
+The following describes the environment I used when compiling this guide. Other
+versions of dependencies may work.
+
+Kotlin 1.3.50
+Gradle 5.6.2
+Java 1.8
+AWS Lambda function targeting Node.js 10.x
 
 ## Steps
 Below are the steps I followed to set up my Lambda function. These steps were valid
