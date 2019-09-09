@@ -98,7 +98,7 @@ Next, I create a Kotlin source file located at  `./src/main/kotlin/Main.kt` whic
 
 ```
 @JsName("handler")
-fun handle(event: Any?, context: Any?) {
+fun handle(event: Any, context: Any) {
   println("hello lambda!")
 }
 ```

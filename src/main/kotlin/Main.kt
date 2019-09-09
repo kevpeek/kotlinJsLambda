@@ -1,4 +1,4 @@
 @JsName("handler")
-fun handle(event: Any?, context: Any?) {
+fun handle(event: Any, context: Any) {
   println("hello lambda!")
 }
