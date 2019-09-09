@@ -6,8 +6,8 @@ Kotlin/JS. My goal is to keep code and configuration to a minimum to facilitate
 getting a functioning Lambda function.
 
 ## Environment
-The following describes the environment I used when compiling this guide. Other
-versions of dependencies may work. PRs with updates an corrections are welcome.
+The following describes the environment used when compiling this guide. Other
+versions may work. PRs with updates an corrections are welcome.
 
 - Kotlin 1.3.50
 - Gradle 5.6.2
@@ -15,7 +15,7 @@ versions of dependencies may work. PRs with updates an corrections are welcome.
 - AWS Lambda function targeting Node.js 10.x
 
 ## Steps
-Below are the steps I followed to set up my Lambda function. These steps were valid
+Below are the steps followed to set up the Lambda function. These steps were valid
 at the time of writing (8 September 2019).
 
 ### Project Setup
@@ -30,7 +30,7 @@ gradle init
 
 I used the `basic` project type, the Groovy DSL (because there is more documentation available online), and the default project name.
 
-Next, I paste the following into the `build.gradle` file:
+Next, paste the following into the `build.gradle` file:
 
 ```
 group 'org.example'
@@ -88,13 +88,13 @@ task assembleWeb(type: Sync) {
 assemble.dependsOn assembleWeb
 ```
 
-Note: I have made two small changes from the Kotlin/JS docs:
-* I specify `commonjs` as the module system.
-* I copy the standard library into `${projectDir}/web/lib` instead of just `${projectDir}/web`.
+Note: above there are two small changes from the Kotlin/JS docs:
+* `commonjs` is specified as the module system.
+* The standard library is copied into `${projectDir}/web/lib` instead of just `${projectDir}/web` because otherwise `output.js` is not created.
 
 ### Writing The Code
 
-Next, I create a Kotlin source file located at  `./src/main/kotlin/Main.kt` which looks as follows:
+Next, create a Kotlin source file located at  `./src/main/kotlin/Main.kt` which looks as follows:
 
 ```
 @JsName("handler")
@@ -107,7 +107,7 @@ fun handle(event: Any, context: Any) {
 
 The project is ready to compile! Run `gradle build` and everything should compile successfully.
 
-First, the compiled Lambda function can be found in `./web/output.js`.  In addition, the Kotlin standard library was compiled into `./web/lib/kotlin.js`.
+The compiled Lambda function can be found in `./web/output.js`.  In addition, the Kotlin standard library was compiled into `./web/lib/kotlin.js`.
 
 ### Creating A Lambda Function
 
