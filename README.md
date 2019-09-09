@@ -7,7 +7,7 @@ getting a functioning Lambda function.
 
 ## Environment
 The following describes the environment I used when compiling this guide. Other
-versions of dependencies may work.
+versions of dependencies may work. PRs with updates an corrections are welcome.
 
 - Kotlin 1.3.50
 - Gradle 5.6.2
@@ -131,4 +131,14 @@ Now press “Test” again and your function should run successfully.
 
 ### Using A Layer For The Standard Library
 
-TODO
+It is inconvenient to copy/paste the (50,000 line) Kotlin standard library with every Kotlin/JS Lambda function
+you create. Thankfully, Lambda provides [layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to help with this. A layer can be created to provide the Kotlin standard library, then individual Lambda functions can simply include this layer and only concern themselves with the logic for the function itself.
+
+To create a layer for the Kotlin standard library, place the `kotlin.js` file into the directory structure `./nodejs/node_module/kotlin.js` and zip up the `nodejs` directory into a .zip archive. Now, open the Lambda page in the AWS console and go to the "layers" section. Click "create layer", and give the layer a name, description, target runtime, etc. Upload the zip archive containing the `kotlin.js` file and press "Create."
+
+Now, go back to the Lambda function created earlier. Click the "layers" button in the "Designer" panel. Clikc "Add Layer" and specify the new layer. Once the layer has been added, return to the "Function Code" view and delete the `kotlin.js` file created earlier. Finally, we need to undo the module import change from earlier. In `kotlinjslambda.js` change this line
+`}(module.exports, require('./kotlin')));`
+back to:
+`}(module.exports, require('kotlin')));`
+
+The Lambda function now gets the Kotlin standard library from the layer.
